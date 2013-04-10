@@ -1,0 +1,15 @@
+
+h2{
+	font-size: 14pt;
+	font-family: sans-serif;
+	margin-left: -20px;
+	color: #555555;
+}
+
+.fullwidth
+{
+	width: 100%; box-sizing: border-box; height: 28px;
+}
+
+
+

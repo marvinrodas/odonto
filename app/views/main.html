@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+<title>#{get 'title' /}</title>
+<meta charset="utf-8">
+
+<link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap.min.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/micss.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/WebGrid.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/Responsive.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+<link rel="stylesheet" media="screen" href="@{'/public/datepicker/css/datepicker.css'}">
+
+
+#{get 'moreStyles' /}
+
+<link rel="shortcut icon" type="image/png" 	href="@{'/public/images/favicon.png'}">
+
+<script src="@{'/public/javascripts/jquery-1.7.1.min.js'}" 	type="text/javascript" charset="UTF-8"></script>
+<script src="@{'/public/bootstrap/js/bootstrap.min.js'}" 	type="text/javascript" charset="UTF-8"></script>
+<script src="@{'/public/datepicker/js/bootstrap-datepicker.js'}" 	type="text/javascript" charset="UTF-8"></script>
+
+#{get 'moreScripts' /}
+    
+    
+    </head>
+    <body>
+       <div class='container'>
+
+    <div id='cabecera' class='row'>
+        <div class='span2'>
+            <div id='cabecera_logo'> <img src="@{'/public/images/logo.jpg'}" >  </div>
+            
+        </div>
+ 
+        <div class='span7'>
+            <div id='cabecera_titulo'> <h2> Clinica de Odontologia, Unidad de Salud - USAC  </h2> </div>
+        </div>
+
+        <div class='span3'>
+            <div id='cabecera_menu'>
+                <ul id='cabecera_menu_items'>
+                    <li><h6><a href="@{Application.index}"> Pagina Inicio </a> </h6></li>
+                    <li><h6><a  href="@{Application.acerca}">Acerca de</a></h6></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id='centro' class='row'>
+        <div class='span3'>
+            <div id='centro_izquierda'>
+                <h3> Menu Usuario </h3>
+                
+                <br />
+                <h3> Menu Sistema </h3>
+                
+            </div>
+        </div>
+
+        <div class='span9'>
+          <div id='centro_contenido'> #{doLayout /} </div>
+        </div>
+
+    </div>
+
+    <div id='pie' class='row' >
+        <div class='span10' >
+            <div id='pie_texto'>  </div>
+        </div>
+
+        <div class='span2'>
+            <div id='pie_logo'> <img src="@{'/public/images/favicon2.png'}"> </div>
+        </div>
+    </div>
+
+</div>
+       
+    </body>
+</html>
