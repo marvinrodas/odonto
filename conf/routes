@@ -3,6 +3,7 @@
 # ~~~~
 
 # Home page
+*       /                                       module:secure
 GET     /                                       Application.index
 GET		/acerca									Application.acerca
 

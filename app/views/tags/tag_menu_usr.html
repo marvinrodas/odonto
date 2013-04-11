@@ -1,0 +1,11 @@
+#{if session.username}
+
+
+	<a href="@{Application.index}"> Cambio Clave </a>
+	<br />
+	<a href="@{Secure.logout()}"> Salir </a>
+#{/if}
+
+#{else}
+	<a href="@{Application.index}"> Ingreso </a>
+#{/else}

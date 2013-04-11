@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html>
@@ -28,23 +27,59 @@
     
     </head>
     <body>
+    
+ 
+    
+    
        <div class='container'>
 
+	<div id='menu' class='row'>
+    	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<div class="row">
+					<a class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+					</a>
+
+					<h2 style="margin-left: 10px">
+						<a class="brand" href="/">Odonto-pro</a>  <span
+							class="hidden-desktop"><strong>#{get 'title' /}</strong></span>
+					</h2>
+
+					<div class="nav-collapse">
+						<ul class="nav">#{menu/}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	</div>
+
     <div id='cabecera' class='row'>
+
+
+
+
         <div class='span2'>
             <div id='cabecera_logo'> <img src="@{'/public/images/logo.jpg'}" >  </div>
             
         </div>
  
-        <div class='span7'>
-            <div id='cabecera_titulo'> <h2> Clinica de Odontologia, Unidad de Salud - USAC  </h2> </div>
+        <div class='span5'>
+            <div id='cabecera_titulo'> <h2>Cl&iacutenica de Odontolog&iacutea</h2> </div>
         </div>
 
-        <div class='span3'>
+        <div class='span5'>
             <div id='cabecera_menu'>
                 <ul id='cabecera_menu_items'>
-                    <li><h6><a href="@{Application.index}"> Pagina Inicio </a> </h6></li>
-                    <li><h6><a  href="@{Application.acerca}">Acerca de</a></h6></li> 
+                    <li>Bienvenido ${user}!</li>
+                    <li><a href="@{Application.index}"> Pagina Inicio </a></li>
+                    <li><a  href="@{Application.acerca}">Acerca de</a> </li>
+
                 </ul>
             </div>
         </div>
@@ -54,10 +89,10 @@
         <div class='span3'>
             <div id='centro_izquierda'>
                 <h3> Menu Usuario </h3>
-                
+                	#{tag_menu_usr /}
                 <br />
                 <h3> Menu Sistema </h3>
-                
+                	#{tag_menu_sis /}
             </div>
         </div>
 
@@ -69,7 +104,7 @@
 
     <div id='pie' class='row' >
         <div class='span10' >
-            <div id='pie_texto'>  </div>
+            <div id='pie_texto'>#{tag_pie /}  </div>
         </div>
 
         <div class='span2'>

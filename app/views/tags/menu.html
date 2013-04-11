@@ -1,0 +1,14 @@
+	<li><a href="@{Application.index()}">Principal</a></li>
+	
+	#{if session.user}
+	
+		<li><a href="@{Dentistas.index}">Dentistas</a></li>
+		<li><a href="@{Atendentes.index}">Atendentes</a></li>
+		<li><a href="@{Pacientes.index}">Pacientes</a></li>
+		<li><a href="@{Procedimentos.index}">Procedimentos</a></li>
+		<li><a href="@{Login.logout}">Logout</a></li>	
+		
+	#{/if}
+	#{else}
+		<li><a href="#">Admin</a></li>	
+	#{/else}
