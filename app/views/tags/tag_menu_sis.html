@@ -1,4 +1,12 @@
 #{if session.username}
+
+	#{if menu }
+	#{list items:menus, as: 'menu'}
+		<li>${menu}</li>
+	#{/list}
+	
+	#{/if}
+	*{
 	@for(registro <- Menu.find.orderBy("raiz asc, orden asc").findList()) {
 
 		@if(registro.url != "") {
@@ -26,12 +34,11 @@
 			}
 	
 		}
-		<br />
-
+		
+		
 	}
 }
-
-
+}*
 #{/if}
 #{else}
 

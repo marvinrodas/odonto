@@ -6,7 +6,7 @@
 *       /                                       module:secure
 GET     /                                       Application.index
 GET		/acerca									Application.acerca
-
+GET		/logout									Application.logout
 
 
 # Ignore favicon requests

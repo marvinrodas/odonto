@@ -23,11 +23,18 @@ public class Application extends Controller {
     }
 	
     public static void index() {
-        render();
+    	
+    	List<Menu> menu = Menu.getAllOrderedByRaiz();
+    	
+        render(menu);
     }
     
     public static void acerca(){
     	render();
     }
 
+    public static void logout(){
+    	session.clear();
+    	index();
+    }
 }
