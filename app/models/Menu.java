@@ -57,7 +57,11 @@ public class Menu extends Model {
     }
     
     public static List<Menu> getAllOrderedByRaiz() {
-        return  Menu.find("order by raiz asc, orden asc").fetch();
+        return  Menu.find("order by name desc").fetch();
+    }
+    
+    public static List<Menu> getTodos(){
+    	return Menu.all().fetch();
     }
     
     

@@ -55,7 +55,12 @@
 		                	#{tag_menu_usr /}
 		                <br />
 		                <h3> Menu Sistema </h3>
-		                	#{tag_menu_sis /}
+		                	*{#{tag_menu_sis /} }*
+		                	
+		                		#{list items:menus, as: 'menu'}
+									<li>${menu}</li>
+								#{/list}
+		                	
 		            </div>
 		        </div>
 		
@@ -67,7 +72,19 @@
 		
 		    <div id='pie' class='row' >
 		        <div class='span10' >
-		            <div id='pie_texto'>#{tag_pie /}  </div>
+		            <div id='pie_texto'> 
+					<p id="time">
+					    ${new Date().format('dd MMMM yyyy', 'es')} - Desarrollado en Play 1.2.5 - Todos los derechos reservados
+					</p>
+		             </div>
+		             
+		<script type="text/javascript" charset="${_response_encoding}">
+		    setInterval(function() {
+		        $('section').load('@{index()} #time')
+		    }, 1000)
+		</script>		            
+       
+		             
 		        </div>
 		
 		        <div class='span2'>
@@ -76,6 +93,5 @@
 		    </div>
 		
 		</div>
-       
     </body>
 </html>

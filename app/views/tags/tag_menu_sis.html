@@ -1,3 +1,8 @@
+	#{list items:menus, as: 'menu'}
+		<li>${menu}</li>
+	#{/list}
+
+
 #{if session.username}
 
 	#{if menu }
@@ -41,7 +46,10 @@
 }*
 #{/if}
 #{else}
-
+	#{list items:menus, as: 'menu'}
+		<li>${menu}</li>
+	#{/list}
+	
 #{/else}
 
 

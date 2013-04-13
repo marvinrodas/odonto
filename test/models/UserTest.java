@@ -3,6 +3,8 @@ package models;
 import org.junit.*;
 import play.test.*;
 
+import java.util.*;
+
 public class UserTest extends UnitTest {
 
 	@Before
@@ -22,6 +24,6 @@ public class UserTest extends UnitTest {
 		//probamos
 		assertNotNull(usuario1);
 		assertEquals("usuario1", usuario1.username);
+
 	}
-	
 }

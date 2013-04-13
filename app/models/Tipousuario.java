@@ -23,7 +23,7 @@ public class Tipousuario extends Model {
     @Required(message="Debe ingresar el nombre")
     public String name;
 
-    @Required @As("dd/MM/yyyy hh:mm")
+    //@Required @As("dd/MM/yyyy hh:mm")
     public Date created;
 
     @Required @As("dd/MM/yyyy hh:mm")

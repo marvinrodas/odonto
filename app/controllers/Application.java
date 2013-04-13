@@ -24,7 +24,7 @@ public class Application extends Controller {
 	
     public static void index() {
     	
-    	List<Menu> menu = Menu.getAllOrderedByRaiz();
+    	List<Menu> menu = Menu.getTodos();
     	
         render(menu);
     }
