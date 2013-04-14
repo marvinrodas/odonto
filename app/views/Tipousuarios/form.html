@@ -1,0 +1,32 @@
+#{extends 'main.html' /}
+#{set title:'Tipo de usuario' /}
+
+#{form @save(), class:'form-horizontal well'}
+
+
+<input type="hidden" name="tipousuario.id" value="${tipousuario?.id}" />
+
+<p>#{if Tipousuario?.id}
+    Editar 
+   #{/if}
+   #{else}
+     Crear 
+   #{/else}  
+   </p>
+
+<legend> Datos del tipo de usuario</legend>
+
+<!--  Nome do Procedimento  -->
+<div class="control-group #{ifError 'tipousuario.name'}error#{/ifError}">
+	<label class="control-label">Nombre:</label>
+	<div class="controls">
+		<input type="text" name="tipousuario.name" value="${tipousuario?.name}">
+		<span class="help-inline">${errors.forKey('tipousuario.name')}</span>
+	</div>
+</div>
+<div class="">
+	<button type="submit" class="btn btn-success"><i class="icon-white icon-ok"></i>Crear</button>
+	<a href="@{Tipousuarios.index()}" class="btn">Cancelar</a>
+</div>
+
+#{/form}

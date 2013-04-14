@@ -5,8 +5,19 @@
 # Home page
 *       /                                       module:secure
 GET     /                                       Application.index
-GET		/acerca									Application.acerca
+GET		/acerca_de								Application.acerca_de
 GET		/logout									Application.logout
+
+
+# Tipos de Usuarios
+GET     /tipousuarios/index          			controllers.Tipousuarios.index()
+GET     /tipousuarios/create/new   				controllers.Tipousuarios.create()
+POST    /tipousuarios/save/new         			controllers.Tipousuarios.save()
+GET     /tipousuarios/edit/{id}        			controllers.Tipousuarios.edit(id:Long)
+POST    /tipousuarios/delete/{id}      			controllers.Tipousuarios.delete(id:Long)
+POST    /tipousuarios/update/{id}      			controllers.Tipousuarios.update(id:Long)
+
+
 
 
 # Ignore favicon requests
@@ -14,6 +25,11 @@ GET     /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
+
+
+# obtener el path de los recursos
+#GET		/assets/*file							controllers.Assets.at(path="/public", file)
+
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

@@ -13,10 +13,10 @@ public class Usuario extends Model {
     @Required(message="Debe ingresar el nombre")
     public String name;
     
-    //@Required @As("dd/MM/yyyy hh:mm")
+    @Required @As("dd/MM/yyyy hh:mm")
     public Date created;
     
-    //@Required @As("dd/MM/yyyy hh:mm")
+    @Required @As("dd/MM/yyyy hh:mm")
     public Date updated;
 
     @Required(message="Debe ingresar el login")
@@ -44,11 +44,12 @@ public class Usuario extends Model {
         this.tipousuario = tipoUsuario;
     }
     
-    
+
+    /*
     public Tipousuario getTipousuario(Long id) {
  		return Tipousuario.findById(id); 
  	}
-    
+    */
     
     /**
      * Retrieve all users.

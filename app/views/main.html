@@ -1,97 +1,97 @@
 <!DOCTYPE html>
-
 <html>
     <head>
 <title>#{get 'title' /}</title>
 <meta charset="utf-8">
 
-<link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap.min.css'}">
-<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap.css'}">
-<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/micss.css'}">
-<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/WebGrid.css'}">
-<link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/Responsive.css'}">
-<link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-<link rel="stylesheet" media="screen" href="@{'/public/datepicker/css/datepicker.css'}">
-
+*{<link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap.css'}"> }*
+<link href="@{'/public/twitter-bootstrap-v2/docs/assets/css/bootstrap.css'}" rel="stylesheet">
+<link href="@{'/public/twitter-bootstrap-v2/docs/assets/css/example-fluid-layout.css'}" rel="stylesheet">
 
 #{get 'moreStyles' /}
 
 <link rel="shortcut icon" type="image/png" 	href="@{'/public/images/favicon.png'}">
 
 <script src="@{'/public/javascripts/jquery-1.7.1.min.js'}" 	type="text/javascript" charset="UTF-8"></script>
-<script src="@{'/public/bootstrap/js/bootstrap.min.js'}" 	type="text/javascript" charset="UTF-8"></script>
-<script src="@{'/public/datepicker/js/bootstrap-datepicker.js'}" 	type="text/javascript" charset="UTF-8"></script>
+<script src="@{'/public/bootstrap/js/bootstrap.js'}" 	type="text/javascript" charset="UTF-8"></script>
 
 #{get 'moreScripts' /}
     
     
-    </head>
+   </head>
     <body>
-      <div class='container'>
-	    <div id='cabecera' class='row'>
-	        <div class='span2'>
-	            <div id='cabecera_logo'> <img src="@{'/public/images/logo.jpg'}" >  </div>
-	        </div>
-	        <div class='span5'>
-	            <div id='cabecera_titulo'> <h2>Cl&iacutenica de Odontolog&iacutea</h2> </div>
-	        </div>
-	
-	        <div class='span5'>
-	            <div id='cabecera_menu'>
-	                <ul id='cabecera_menu_items'>
-	                    <li>Bienvenido ${user}!</li>
-	                    <li><a href="@{Application.index}"> Pagina Inicio </a></li>
-	                    <li><a  href="@{Application.acerca}">Acerca de</a> </li>
-	
-	                </ul>
-	            </div>
-	        </div>
+    
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#"><img src="@{'/public/images/home.png'}" width="25" height="20" alt="Home" /></a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="@{Application.index}">Inicio</a></li>
+              <li><a href="@{Application.acerca_de}">Acerca de</a></li>
+              <li><a href="#contact">Contactenos</a></li>
+            </ul>
+            <p class="navbar-text pull-right">Usuario :<a href="#"> ${user}</a></p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>    
+    
+    <div class="container-fluid">
+    	<div class="row-fluid">
+        	<div class="span12">
+        	<div id='cabecera_titulo'> <h2>Cl&iacutenica de Odontolog&iacutea</h2> </div>
+        	</div>
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Menu de usuario</li>
+              #{tag_menu_usr /}
+			  <li><a href="#">Twitter Bootstrap</a></li>
+              <li class="nav-header">Menu del sistema</li>
+              #{tag_menu_sis /} 
+              <li><a href="#">MySQL</a></li>
+           </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+    
+    	<div class='span9'>
+	           #{doLayout /} 
 	    </div>
-
-		    <div id='centro' class='row'>
-		        <div class='span3'>
-		            <div id='centro_izquierda'>
-		                <h3> Menu Usuario </h3>
-		                	#{tag_menu_usr /}
-		                <br />
-		                <h3> Menu Sistema </h3>
-		                	*{#{tag_menu_sis /} }*
-		                	
-		                		#{list items:menus, as: 'menu'}
-									<li>${menu}</li>
-								#{/list}
-		                	
-		            </div>
-		        </div>
-		
-		        <div class='span9'>
-		          <div id='centro_contenido'> #{doLayout /} </div>
-		        </div>
-		
-		    </div>
-		
-		    <div id='pie' class='row' >
-		        <div class='span10' >
-		            <div id='pie_texto'> 
-					<p id="time">
-					    ${new Date().format('dd MMMM yyyy', 'es')} - Desarrollado en Play 1.2.5 - Todos los derechos reservados
-					</p>
-		             </div>
-		             
-		<script type="text/javascript" charset="${_response_encoding}">
-		    setInterval(function() {
-		        $('section').load('@{index()} #time')
-		    }, 1000)
-		</script>		            
-       
-		             
-		        </div>
-		
-		        <div class='span2'>
-		            <div id='pie_logo'> <img src="@{'/public/images/favicon2.png'}"> </div>
-		        </div>
-		    </div>
+				
+		    <footer>
+        		<p>${new Date().format('dd MMMM yyyy', 'es')} - Desarrollado en Play 1.2.5 - Todos los derechos reservados - 
+        		&copy; 2013 
+        		<img src="@{'/public/images/favicon2.png'}">
+        		</p>
+      		</footer>
 		
 		</div>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="twitter-bootstrap-v2/docs/assets/js/jquery.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-transition.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-alert.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-modal.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-dropdown.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-tab.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-tooltip.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-popover.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-button.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-collapse.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-carousel.js"></script>
+    <script src="twitter-bootstrap-v2/docs/assets/js/bootstrap-typeahead.js"></script>
     </body>
 </html>

@@ -1,0 +1,72 @@
+#{extends 'main.html' /}
+#{set title:'Usuario' /}
+
+#{if usuario?.id}
+	#{set title: 'Editar Usuario' /}
+#{/if}
+#{else}
+	#{set title: 'Nuevo Usuario' /}
+#{/else}
+
+
+
+
+#{form @save(), class:'form-horizontal well'}
+
+
+<input type="hidden" name="usuario.id" value="${usuario?.id}" />
+
+<p>#{if usuario?.id}
+    Editar 
+   #{/if}
+   #{else}
+     Crear 
+   #{/else}  
+   </p>
+
+<legend> Datos del usuario</legend>
+
+<div class="control-group #{ifError 'usuario.name'}error#{/ifError}">
+	<label class="control-label">Nombre:</label>
+	<div class="controls">
+		<input type="text" name="usuario.name" value="${usuario?.name}">
+		<span class="help-inline">${errors.forKey('usuario.name')}</span>
+	</div>
+	
+	<label class="control-label">Login:</label>
+	<div class="controls">
+		<input type="text" name="usuario.login" value="${usuario?.login}">
+		<span class="help-inline">${errors.forKey('usuario.login')}</span>
+	</div>
+	
+	<label class="control-label">Clave:</label>
+	<div class="controls">
+		<input type="password" name="usuario.password" value="${usuario?.password}">
+		<span class="help-inline">${errors.forKey('usuario.password')}</span>
+	</div>
+
+	<label class="control-label">Email:</label>
+	<div class="controls">
+		<input type="text" name="usuario.email" value="${usuario?.email}">
+		<span class="help-inline">${errors.forKey('usuario.email')}</span>
+	</div>
+	
+	<div class="control-group #{ifError 'usuario'}error#{/ifError}">
+	<label class="control-label">Tipo de usuario:</label>
+	<div class="controls">
+		#{select 'Usuario.tipousuario.id', items:usuarios, valueProperty:'id', labelProperty:'nombre'/}
+		<span class="help-inline">
+		${errors.forKey('Usuario.tipousuario')}</span>
+	</div>
+</div>
+	
+	
+	
+</div>
+<div class="">
+	<button type="submit" class="btn btn-success"><i class="icon-white icon-ok"></i>Crear</button>
+	<a href="@{Tipousuarios.index()}" class="btn">Cancelar</a>
+</div>
+
+#{/form}
+

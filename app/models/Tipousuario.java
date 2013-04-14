@@ -1,12 +1,11 @@
 package models;
 
-import java.util.*;
-import javax.persistence.*;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-
+import play.*;
+import play.data.validation.Required;
 import play.db.jpa.*;
-import play.data.validation.*;
+
+import javax.persistence.*;
+import java.util.*;
 
 import play.data.binding.As;
 
@@ -23,7 +22,7 @@ public class Tipousuario extends Model {
     @Required(message="Debe ingresar el nombre")
     public String name;
 
-    //@Required @As("dd/MM/yyyy hh:mm")
+    @Required @As("dd/MM/yyyy hh:mm")
     public Date created;
 
     @Required @As("dd/MM/yyyy hh:mm")
@@ -35,10 +34,6 @@ public class Tipousuario extends Model {
     	this.updated = new Date();
     }
     
-    
-    public static Tipousuario findById(Long id) {
-        return find("byId", id).first();
-    }
     
     @Override
     public String toString(){

@@ -7,6 +7,7 @@ import java.util.*;
 
 import models.*;
 
+
 import play.data.validation.Required;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -29,7 +30,7 @@ public class Application extends Controller {
         render(menu);
     }
     
-    public static void acerca(){
+    public static void acerca_de(){
     	render();
     }
 
