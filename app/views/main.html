@@ -66,6 +66,19 @@
         </div><!--/span-->
     
     	<div class='span9'>
+    		<div class="row">
+			#{if flash.error}
+			<div class="alert alert-error">
+				<a class="close" data-dismiss="alert">&times;</a> ${flash.error}
+			</div>
+			#{/if} 
+			#{if flash.success}
+			<div class="alert alert-success">
+				<a class="close" data-dismiss="alert">&times;</a> ${flash.success}
+			</div>
+			#{/if}
+		</div>
+    	
 	           #{doLayout /} 
 	    </div>
 				

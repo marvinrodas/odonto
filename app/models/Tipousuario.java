@@ -13,27 +13,22 @@ import play.data.binding.As;
 @Entity 
 public class Tipousuario extends Model {
 
-	/*
-    @Id
-    @Column(unique=true, nullable=false)
-    public Long id;
-	 */
-	
     @Required(message="Debe ingresar el nombre")
     public String name;
 
-    @Required @As("dd/MM/yyyy hh:mm")
+    @Required 
+    @As("dd/MM/yyyy HH:mm:ss")
     public Date created;
 
-    @Required @As("dd/MM/yyyy hh:mm")
+    @Required 
+    @As("dd/MM/yyyy HH:mm:ss")
     public Date updated;
 
-    public Tipousuario(String name){
-    	this.name = name;
-    	this.created = new Date();
-    	this.updated = new Date();
-    }
-    
+    //public Tipousuario(String name){
+    //	this.name = name;
+    	//this.created = new Date();
+    	//this.updated = new Date();
+    //}
     
     @Override
     public String toString(){

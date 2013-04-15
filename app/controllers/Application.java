@@ -31,7 +31,8 @@ public class Application extends Controller {
     }
     
     public static void acerca_de(){
-    	render();
+    	Date now = new Date();
+    	render(now);
     }
 
     public static void logout(){

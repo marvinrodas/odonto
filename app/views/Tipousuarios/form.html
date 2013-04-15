@@ -1,31 +1,48 @@
 #{extends 'main.html' /}
-#{set title:'Tipo de usuario' /}
+
+#{if tipousuario?.id}
+	#{set title: 'Editar Tipo de Usuario' /} 
+#{/if} 
+#{else} 
+	#{set title: 'Cear Nuevo Tipo de Usuario' /} 
+#{/else} 
 
 #{form @save(), class:'form-horizontal well'}
 
 
+#{if tipousuario?.id}
+		<legend>Editar Tipo de Usuario</legend> 
+#{/if} 
+#{else} 
+		<legend>Crear Nuevo Tipo de Usuario</legend> 
+ 
+#{/else} 
+
+
 <input type="hidden" name="tipousuario.id" value="${tipousuario?.id}" />
 
-<p>#{if Tipousuario?.id}
-    Editar 
-   #{/if}
-   #{else}
-     Crear 
-   #{/else}  
-   </p>
-
-<legend> Datos del tipo de usuario</legend>
-
-<!--  Nome do Procedimento  -->
 <div class="control-group #{ifError 'tipousuario.name'}error#{/ifError}">
 	<label class="control-label">Nombre:</label>
 	<div class="controls">
-		<input type="text" name="tipousuario.name" value="${tipousuario?.name}">
-		<span class="help-inline">${errors.forKey('tipousuario.name')}</span>
+		<input type="text" name="tipousuario.name"
+			value="${tipousuario?.name}"> <span class="help-inline">${errors.forKey('tipousuario.name')}</span>
 	</div>
+
+#{if tipousuario?.id}
+			<input type="hidden" name="tipousuario.updated"	value="${now.format('dd/MM/yyyy HH:mm:ss')}">
+#{/if} 
+#{else} 
+		<input type="hidden" name="tipousuario.created" value="${now.format('dd/MM/yyyy HH:mm:ss')}">
+ 		<input type="hidden" name="tipousuario.updated"	value="${now.format('dd/MM/yyyy HH:mm:ss')}">
+#{/else} 
+
+
+	
 </div>
 <div class="">
-	<button type="submit" class="btn btn-success"><i class="icon-white icon-ok"></i>Crear</button>
+	<button type="submit" class="btn btn-success">
+		<i class="icon-white icon-ok"></i>Crear
+	</button>
 	<a href="@{Tipousuarios.index()}" class="btn">Cancelar</a>
 </div>
 

@@ -29,18 +29,24 @@ public class Usuarios extends Controller {
 
 	public static void show(long id) {
 		Usuario usuario = Usuario.findById(id);
-
+		
+		System.out.println("El id de Tipousuario es: " + usuario.tipousuario.name); 
 		render("@form", usuario);
 	}
 
 	public static void create() {
-		render("@form");
+		List<Tipousuario> tipousuarios = Tipousuario.all().fetch();
+		
+		render("@form", tipousuarios);
 	}
 
 	public static void save(@Valid Usuario usuario) {
 		if (validation.hasErrors()) {
 			flash.error("Favor corregir errores antes de continuar.");
-			render("@form", usuario);
+
+			List<Tipousuario> tipousuarios = Tipousuario.all().fetch();
+
+			render("@form", usuario,tipousuarios );
 		}
 
 		usuario.save();

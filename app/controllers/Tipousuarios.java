@@ -15,65 +15,44 @@ import play.data.validation.Valid;
 
 public class Tipousuarios extends Controller {
 
-	/**
-	 * Recupera e exibe lista de Procedimentos cadastrados.
-	 */
 	public static void index() {
 
-		List<Tipousuario> tipousuarios = Tipousuario.all().fetch(); 
+		List<Tipousuario> tipousuarios = Tipousuario.all().fetch();
 
 		render(tipousuarios);
 	}
 
-	/**
-	 * Recupera um procedimento através do seu id.
-	 * @param id
-	 */
-	public static void show(long id)
-	{
+	public static void show(long id) {
 
 		Tipousuario tipousuario = Tipousuario.findById(id);
-
-		render("@form",tipousuario);
+		Date now = new Date();
+		
+		render("@form", tipousuario, now);
 	}
 
-	/**
-	 * Exibe o form de cadastro de procedimentos.
-	 */
-	public static void create()
-	{
-		render("@form");
+	public static void create() {
+		Date now = new Date();
+		
+		render("@form", now);
 	}
 
-	/**
-	 * Salva (persiste) o procedimento na base.
-	 * @param procedimento
-	 */
-	public static void save(@Valid Tipousuario tipousuario)
-	{
-		if (validation.hasErrors())
-		{
+	public static void save(@Valid Tipousuario tipousuario) {
+		if (validation.hasErrors()) {
 			flash.error("Favor corregir errores antes de continuar.");
 			render("@form", tipousuario);
 		}
-		
+
 		tipousuario.save();
 
 		flash.success("Tipo de usuario guardado exitosamente.");
 		index();
 	}
 
-	/**
-	 * Exclui o procedimento pelo seu id.
-	 * @param id
-	 */
-	public static void delete(long id)
-	{
+	public static void delete(long id) {
 		Tipousuario tipousuario = Tipousuario.findById(id);
 		tipousuario.delete();
 		flash.success("Tipo de usuario eliminado exitosamente");
 		index();
 	}
-
     
 }
