@@ -23,32 +23,43 @@ public class Usuarios extends Controller {
 	public static void index() {
 
 		List<Usuario> usuarios = Usuario.all().fetch();
-
+		
 		render(usuarios);
 	}
 
 	public static void show(long id) {
 		Usuario usuario = Usuario.findById(id);
-		
-		System.out.println("El id de Tipousuario es: " + usuario.tipousuario.name); 
-		render("@form", usuario);
+		Date now = new Date();
+	
+		render("@form", usuario, now);
 	}
 
 	public static void create() {
 		List<Tipousuario> tipousuarios = Tipousuario.all().fetch();
+		Date now = new Date();
 		
-		render("@form", tipousuarios);
+		render("@form", tipousuarios, now);
 	}
 
 	public static void save(@Valid Usuario usuario) {
+		/*
+		//--check if login exists
+		if( Usuario.find("byLogin", usuario.login).first() != null)
+		{
+			System.out.println("Ya existe");
+			validation.addError(usuario.login, "login ya existe " + usuario.login);
+		}
+		*/
+		
 		if (validation.hasErrors()) {
-			flash.error("Favor corregir errores antes de continuar.");
-
+			flash.error("Favor corregir errores antes de continuar." );
+			Date now = new Date();
 			List<Tipousuario> tipousuarios = Tipousuario.all().fetch();
 
-			render("@form", usuario,tipousuarios );
+			render("@form", usuario, tipousuarios, now);
 		}
-
+		
+		
 		usuario.save();
 
 		flash.success("Usuario guardado exitosamente.");

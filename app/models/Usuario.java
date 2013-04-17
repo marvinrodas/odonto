@@ -13,15 +13,16 @@ public class Usuario extends Model {
 	@Required(message = "Debe ingresar el nombre")
 	public String name;
 
-	//@Required
-	@As("dd/MM/yyyy hh:mm")
+	@Required
+	@As("dd/MM/yyyy HH:mm:ss")
 	public Date created;
 
-	//@Required
-	@As("dd/MM/yyyy hh:mm")
+	@Required
+	@As("dd/MM/yyyy HH:mm:ss")
 	public Date updated;
 
 	@Required(message = "Debe ingresar el login")
+	@Column(unique=true ) 
 	public String login;
 
 	@Required(message = "Debe ingresar la clave")
@@ -56,9 +57,20 @@ public class Usuario extends Model {
 	// return Usuario.all().fetch();
 	// }
 
-	// public static Usuario findByUsuario(String usuario) {
-	// return find.where().eq("login", usuario).findUnique();
-	// }
+	
+	
+	
+	 public static boolean findByLogin(String login) {
+		 
+		 Usuario usuario = Usuario.find("byLogin", login).first(); 
+		 
+		 
+		if (usuario != null) 
+			return true;
+		
+		return false;
+
+	 }
 
 	// public static Usuario authenticate(String usuario, String clave) {
 	// return find.where()

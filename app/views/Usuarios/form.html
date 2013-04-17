@@ -27,38 +27,74 @@
 		<input type="text" name="usuario.name" value="${usuario?.name}">
 		<span class="help-inline">${errors.forKey('usuario.name')}</span>
 	</div>
+</div>
 
+<div class="control-group #{ifError 'usuario.login'}error#{/ifError}">
 	<label class="control-label">Login:</label>
 	<div class="controls">
 		<input type="text" name="usuario.login" value="${usuario?.login}">
 		<span class="help-inline">${errors.forKey('usuario.login')}</span>
 	</div>
+</div>
 
+<div class="control-group #{ifError 'usuario.password'}error#{/ifError}">
 	<label class="control-label">Clave:</label>
 	<div class="controls">
-		<input type="password" name="usuario.password"
-			value="${usuario?.password}"> <span class="help-inline">${errors.forKey('usuario.password')}</span>
+		<input type="password" name="usuario.password" value="${usuario?.password}"> 
+		<span class="help-inline">${errors.forKey('usuario.password')}</span>
 	</div>
+</div>
 
+<div class="control-group #{ifError 'usuario.email'}error#{/ifError}">
 	<label class="control-label">Email:</label>
 	<div class="controls">
 		<input type="text" name="usuario.email" value="${usuario?.email}">
 		<span class="help-inline">${errors.forKey('usuario.email')}</span>
 	</div>
+</div>
 
-	<div class="control-group #{ifError 'usuario.tipousurio'}error#{/ifError}">
+<div class="control-group #{ifError 'usuario.tipousuario'}error#{/ifError}">
 		<label class="control-label">Tipo de Usuario:</label>
 		<div class="controls">
-			#{select 'usuario.tipousuario.id', items:tipousuarios,
-			valueProperty:'id', labelProperty:'name'/} <span class="help-inline">
-				${errors.forKey('usuario.tipousuario')}</span>
-		</div>
-	</div>
-
+		   
+		    <select  name="usuario.tipousuario.id">
+		        #{if usuario?.id}
+		        #{list tipousuarios, as:'tipousuario'}
+				        #{if tipousuario.id == usuario.tipousuario.id}
+				        <option  value="${tipousuario.id}" selected="selected">${tipousuario.name}</option>
+				        #{/if}
+				        #{else}
+				        	<option  value="${tipousuario.id}">${tipousuario.name}</option>
+						#{/else}
+					#{/list}	
+				   #{/if}
+				   
+				   #{else}
+			        #{list tipousuarios, as:'tipousuario'}
+				   		<option  value="${tipousuario.id}">${tipousuario.name}</option>
+			   		#{/list}
+				   #{/else}
+				
+		    </select>
+		    
+		  *{  
+	    #{select 'usuario.tipousuario.id', items:tipousuarios, valueProperty:'id', labelProperty:'name'/}
+		<span class="help-inline">${errors.forKey('usuario.tipousuario')}</span>
+		}*
 </div>
+</div>
+#{if usuario?.id}
+		<input type="hidden" name="usuario.updated"	value="${now.format('dd/MM/yyyy HH:mm:ss')}">
+#{/if} 
+#{else} 
+		<input type="hidden" name="usuario.created" value="${now.format('dd/MM/yyyy HH:mm:ss')}">
+ 		<input type="hidden" name="usuario.updated"	value="${now.format('dd/MM/yyyy HH:mm:ss')}">
+#{/else} 
+
+
 <div class="">
 	<button type="submit" class="btn btn-success">
-		<i class="icon-white icon-ok"></i>Crear
+		<i class="icon-white icon-ok"></i>Aceptar
 	</button>
 	<a href="@{Usuarios.index()}" class="btn">Cancelar</a>
 </div>
