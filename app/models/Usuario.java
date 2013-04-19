@@ -26,7 +26,7 @@ public class Usuario extends Model {
 	public String login;
 
 	@Required(message = "Debe ingresar la clave")
-	public String password;
+	public String clave;
 
 	// @Required(message="Debe ingresar el email")
 	public String email;
@@ -45,7 +45,7 @@ public class Usuario extends Model {
 			Tipousuario tipoUsuario) {
 		this.name = name;
 		this.login = login;
-		this.password = password;
+		this.clave = password;
 		this.email = email;
 		this.created = new Date();
 		this.updated = new Date();

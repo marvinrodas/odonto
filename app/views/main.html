@@ -1,23 +1,47 @@
 <!DOCTYPE html>
 <html>
     <head>
-<title>#{get 'title' /}</title>
-<meta charset="utf-8">
+	<title>#{get 'title' /}</title>
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" media="screen"
+	href="@{'/public/bootstrap/css/bootstrap.min.css'}">
 
-*{<link rel="stylesheet" media="screen" href="@{'/public/bootstrap/css/bootstrap.css'}"> }*
-<link href="@{'/public/twitter-bootstrap-v2/docs/assets/css/bootstrap.css'}" rel="stylesheet">
-<link href="@{'/public/twitter-bootstrap-v2/docs/assets/css/example-fluid-layout.css'}" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
 
-#{get 'moreStyles' /}
+	<link rel="stylesheet" media="screen"
+		href="@{'/public/bootstrap/css/Responsive.css'}">
+	
+	<link rel="stylesheet" media="screen"
+		href="@{'/public/stylesheets/main.css'}">
 
-<link rel="shortcut icon" type="image/png" 	href="@{'/public/images/favicon.png'}">
+	<link rel="stylesheet" media="screen"
+		href="@{'/public/datepicker/css/datepicker.css'}">
+	
+	#{get 'moreStyles' /}
 
-<script src="@{'/public/javascripts/jquery-1.7.1.min.js'}" 	type="text/javascript" charset="UTF-8"></script>
-<script src="@{'/public/bootstrap/js/bootstrap.js'}" 	type="text/javascript" charset="UTF-8"></script>
+	<link rel="shortcut icon" type="image/png"
+	href="@{'/public/images/favicon.png'}">
 
-#{get 'moreScripts' /}
-    
-    
+	<script src="@{'/public/javascripts/jquery-1.7.1.min.js'}"
+		type="text/javascript" charset="UTF-8"></script>
+	
+	<script src="@{'/public/bootstrap/js/bootstrap.min.js'}"
+		type="text/javascript" charset="UTF-8"></script>
+	
+	<script src="@{'/public/datepicker/js/bootstrap-datepicker.js'}"
+		type="text/javascript" charset="UTF-8"></script>
+		
+	
+	#{get 'moreScripts' /}
    </head>
     <body>
     
@@ -29,76 +53,63 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#"><img src="@{'/public/images/home.png'}" width="25" height="20" alt="Home" /></a>
+          <a class="brand" href="#">Project name</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="@{Application.index}">Inicio</a></li>
-              <li><a href="@{Application.acerca_de}">Acerca de</a></li>
-              <li><a href="#contact">Contactenos</a></li>
+            	#{menu/}
             </ul>
-            <p class="navbar-text pull-right">Usuario :<a href="#"> ${user}</a></p>
+            <p class="navbar-text pull-right">Autenticado como <a href="#">${usuario}</a></p>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>    
-    
-    <div class="container-fluid">
-    	<div class="row-fluid">
-        	<div class="span12">
-        	<div id='cabecera_titulo'> <h2>Cl&iacutenica de Odontolog&iacutea</h2> </div>
-        	</div>
-        </div>
-    </div>
-    
+   <div class="container">
+
+		<div class="row">
+		</div>
+	</div>
+	<!-- /container -->
+
+
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
+              <li class="nav-header"></li>
               <li class="nav-header">Menu de usuario</li>
               #{tag_menu_usr /}
 			  <li><a href="#">Twitter Bootstrap</a></li>
               <li class="nav-header">Menu del sistema</li>
               #{tag_menu_sis /} 
               <li><a href="#">MySQL</a></li>
-           </ul>
+            </ul>
           </div><!--/.well -->
         </div><!--/span-->
-    
-    	<div class='span9'>
-    		<div class="row">
-			#{if flash.error}
+        <div class="span9">
+          <div class="hero-unit">
+          			#{if flash.error}
 			<div class="alert alert-error">
 				<a class="close" data-dismiss="alert">&times;</a> ${flash.error}
 			</div>
-			#{/if} 
-			#{if flash.success}
+			#{/if} #{if flash.success}
 			<div class="alert alert-success">
 				<a class="close" data-dismiss="alert">&times;</a> ${flash.success}
 			</div>
 			#{/if}
-		</div>
-	           #{doLayout /}
-	           
-	    </div>
-	    	</div>	
-	           <footer>
-	           <p>${new Date().format('dd MMMM yyyy', 'es')} - Desarrollado en Play 1.2.5 - Todos los derechos reservados - 
-        		&copy; 2013 
-        		<img src="@{'/public/images/favicon2.png'}">
-        		</p>
-		    	
-	           </footer> 
+          
+          #{doLayout /}
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
 
+      <footer>
+        <p>&copy; Cl&iacute;nica de Odontolog&iacute;a - Unidad de Salud - USAC  2013</p>
+      </footer>
 
-		    
-    </div>
-		    	
-		    
-		    
-		
-	
-		
+    </div><!--/.fluid-container-->
+    
+
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -116,6 +127,14 @@
     <script src="@{'/public/twitter-bootstrap-v2/docs/assets/js/bootstrap-carousel.js'}"></script>
     <script src="@{'/public/twitter-bootstrap-v2/docs/assets/js/bootstrap-typeahead.js'}"></script>
     
+	<script type="text/javascript">
+			$(document).ready(function() {
+
+				$("#hostActions").html($("#actions").html());
+				$("#actions").hide();
+
+			});
+		</script>
 
     </body>
 </html>

@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-*       /                                       module:secure
+#*       /                                       module:secure
 GET     /                                       Application.index
 GET		/acerca_de								Application.acerca_de
 GET		/logout									Application.logout

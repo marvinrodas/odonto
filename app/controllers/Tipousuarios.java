@@ -16,10 +16,10 @@ import play.data.validation.Valid;
 public class Tipousuarios extends Controller {
 
 	public static void index() {
-
+		Date now = new Date();
 		List<Tipousuario> tipousuarios = Tipousuario.all().fetch();
 
-		render(tipousuarios);
+		render(tipousuarios, now);
 	}
 
 	public static void show(long id) {
@@ -37,9 +37,10 @@ public class Tipousuarios extends Controller {
 	}
 
 	public static void save(@Valid Tipousuario tipousuario) {
+		Date now = new Date();
 		if (validation.hasErrors()) {
 			flash.error("Favor corregir errores antes de continuar.");
-			render("@form", tipousuario);
+			render("@form", tipousuario, now);
 		}
 
 		tipousuario.save();

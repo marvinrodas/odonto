@@ -2,7 +2,7 @@
 #{set title:'Control Acceso a Usuarios' /}
 
 <div class="row">
-	<div class="span12">
+	<div class="span9">
 		<div>
 			<legend>Control de Acceso a Usuarios</legend>
 			
@@ -18,7 +18,8 @@
 						<th>Tipo Usuario</th>
 						<th>Creado</th>
 						<th>Modificado</th>
-						<th>Editar</th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -27,13 +28,13 @@
 						<td>${usuario.id}</td>
 						<td>${usuario.name}</td>
 						<td>${usuario.login}</td>
-						<td>${usuario.password}</td>
+						<td>${usuario.clave}</td>
 						<td>${usuario.email}</td>
 						<td>${usuario.tipousuario.name}</td>
 						<td>${usuario.created}</td>
 						<td>${usuario.updated}</td>
-						<td><a href="@{Usuarios.show(usuario.id)}" 	class="icon-pencil"></a>
-							<a href="@{Usuarios.delete(usuario.id)}" class="icon-remove"  onclick="return confirm('Est&aacute seguro?')"></a>
+						<td><p><a href="@{Usuarios.show(usuario.id)}" class="btn btn-small btn-info">Editar &raquo;</a></p>						</td>
+						<td><p><a href="@{Usuarios.delete(usuario.id)}" class="btn btn-small btn-info" onclick="return confirm('Est&aacute seguro?')">Borrar &raquo;</a></p></td>
 					</tr>
 					#{/list}
 				</tbody>

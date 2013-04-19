@@ -7,7 +7,7 @@ import models.User;
  *
  * @author Ivan Masich w3cvalid@gmail.com
  */
-public class Security extends Secure.Security {
+public class Security { //extends Secure.Security {
 
     /**
      * Simple audentify realization, if user doesn't exist it will be created.

@@ -1,10 +1,6 @@
 package models;
 
 public class Login {
-
-	public interface All{}
-	
-	public Login(){}
 	
 	public String login;
 	public String clave;
