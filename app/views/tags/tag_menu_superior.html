@@ -1,0 +1,12 @@
+	#{if session.user}
+		<li><a href="@{Application.index()}">Inicio</a></li>
+		<li><a href="#}">Dentistas</a></li>
+		<li><a href="#">Atendentes</a></li>
+		<li><a href="#">Pacientes</a></li>
+		<li><a href="#">Procedimentos</a></li>
+		<li><a href="@{Application.admin}">Admin</a></li>
+		<li><a href="@{Login.logout}">Salir</a></li>	
+	#{/if}
+	#{else}
+		*{ <li><a href="@{Application.login()}">Ingresar</a></li> }*
+	#{/else}

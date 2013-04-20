@@ -13,10 +13,9 @@ public class Security {
     		Application.login();
     }
     
-    
     public static boolean isLogged()
     {
-    	return Session.current().get("usuario")!=null;
+    	return Session.current().get("user")!=null;
     }
     
     

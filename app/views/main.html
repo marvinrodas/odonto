@@ -53,12 +53,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#">Cl&iacute;nica de Odontolog&iacute;a</a>
           <div class="nav-collapse">
             <ul class="nav">
-            	#{menu/}
+            	#{tag_menu_superior/}
             </ul>
-            <p class="navbar-text pull-right">Autenticado como <a href="#">${usuario}</a></p>
+            #{if user?.id}
+                <p class="navbar-text pull-right">Autenticado como <a href="#">${user.name}</a></p>
+            #{/if}
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -77,12 +79,9 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header"></li>
-              <li class="nav-header">Menu de usuario</li>
               #{tag_menu_usr /}
-			  <li><a href="#">Twitter Bootstrap</a></li>
-              <li class="nav-header">Menu del sistema</li>
+			  <br>
               #{tag_menu_sis /} 
-              <li><a href="#">MySQL</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -129,10 +128,8 @@
     
 	<script type="text/javascript">
 			$(document).ready(function() {
-
 				$("#hostActions").html($("#actions").html());
 				$("#actions").hide();
-
 			});
 		</script>
 

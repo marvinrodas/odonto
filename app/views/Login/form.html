@@ -3,9 +3,24 @@
 
 #{form @Login.tryLogin()}
 
-	<input type="text" name="u.login"/>
-	<input type="password" name="u.clave"/>
+  <div class="control-group">
+    <label class="control-label" for="inputLogin">Login</label>
+    <div class="controls">
+      <input type="text" id="inputLogin" name="u.login" placeholder="Login">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputClave">Clave</label>
+    <div class="controls">
+      <input type="password" id="inputClave" name="u.clave" placeholder="Clave">
+    </div>
+  </div>
+<div class="control-group">
+    <div class="controls">
+      <input type="submit"  class="btn btn-primary" value="Ingresar">
+    </div>
+  </div>
 	
-	<input type="submit" value="Ingresar"/>
+	
 	
 #{/form}

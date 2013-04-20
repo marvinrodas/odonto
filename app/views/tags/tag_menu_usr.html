@@ -1,9 +1,10 @@
-#{if session.usuario}
-	<a href="@{Application.index}"> Cambio Clave </a>
-	<br />
-	*{ <a href="@{Secure.logout()}"> Salir </a> }*
-	<a href="@{Login.logout}"> Salir </a>
+#{if session.user}
+	<li class="nav-header">Menu de usuario</li>
+	*{ <a href="@{Application.index}"> Cambio Clave </a> 
+		<a href="@{Login.logout}"> Salir </a> }*
+	#{tag_menu_superior/}
+	
 #{/if}
 #{else}
-	<a href="@{Application.index}"> Ingresar </a>
+	<a href="@{Application.login}">Ingresar</a>
 #{/else}
